@@ -45,8 +45,8 @@ if(!empty($_FILES['files'])) {
         'url' =>$url,
         'imageurl' =>$imageurl,
       );
-      print_r($facetly->productUpdate($item));	//insert product with fuction from facetly library(facetly.php)	
-      $i++;
+    print_r($facetly->productUpdate($item));//insert product with fuction from facetly library(facetly_api.php)	
+    $i++;
     }
   fclose($handle);
   }

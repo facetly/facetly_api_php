@@ -56,7 +56,7 @@ if(!empty($_POST))
       'body' => $_POST['body'],
     );
 
-    print_r($facetly->productUpdate($item));//insert product with fuction from facetly library(facetly.php)
+    print_r($facetly->productUpdate($item));//insert product with fuction from facetly library(facetly_api.php)
   }
   else
   {
