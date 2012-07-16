@@ -30,8 +30,6 @@ if(!empty($_FILES['files'])) {
         $flag++;
         continue;
       }
-      //print_r($data);
-      //exit();
       $title = $data[0];
       $category = $data[1];
       $body = $data[2];
@@ -47,8 +45,6 @@ if(!empty($_FILES['files'])) {
         'url' =>$url,
         'imageurl' =>$imageurl,
       );
-//print_r($item);
-  //exit();
       print_r($facetly->productUpdate($item));	//insert product with fuction from facetly library(facetly.php)	
       $i++;
     }
