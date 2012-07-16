@@ -71,7 +71,7 @@ class facetly_api
         return $this->call($path, $data, 'POST');
     }
     
-    function productInsert($items)
+    function productUpdate($items)
     {
         $key    = $this->key;
         $secret = $this->secret;
@@ -80,7 +80,7 @@ class facetly_api
             "secret" => $secret
         );
         $data   = array_merge($data, $items);
-        $path   = "product/insert";
+        $path   = "product/update";
         return $this->call($path, $data, 'POST');
     }
     
