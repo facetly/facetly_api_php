@@ -8,8 +8,11 @@ Live Example
 Here is a couples demo hosted online
 
 http://drupal1.demo.facetly.com
+
 http://drupal2.demo.facetly.com
+
 http://drupal3.demo.facetly.com
+
 http://sentrabelanja.com.dev.skyshi.com/find
 
 Authentication
