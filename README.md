@@ -23,11 +23,14 @@ Function like search product and search autocomplete need authentication baseurl
 ~~~
 require_once("./facetly_api.php");
 $facetly_api = new facetly_api;
+
 //input your Facetly API keys, secret and server 
 $api_key = 'zuakz7ok';
 $api_secret = 'dmzmyfsapjhknutrtunvjesnunbae6ej';
 $api_server = 'http://sg2.facetly.com/1';
 $api_baseurl = '/find';
+
+//set authentication
 $facetly_api->setConsumer($api_key,$api_secret); 
 $facetly_api->setServer($api_server);
 $facetly_api->setBaseurl($api_baseurl);
@@ -103,9 +106,9 @@ $api_server = 'http://sg2.facetly.com/1';
 $facetly_api->setConsumer($api_key,$api_secret); 
 $facetly_api->setServer($api_server);
 
-$query = 'acer' //input your search keyword
-$filter = $_GET
-$searchtype = 'html' // we provide 2 type method for return of search result there are 'json' and 'html'
+$query = 'acer'; //input your search keyword
+$filter = $_GET;
+$searchtype = 'html'; // we provide 2 type method for return of search result there are 'json' and 'html'
 
 $facetly_api->searchProduct($query,$filter,$searchtype);
 ~~~
