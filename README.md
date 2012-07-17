@@ -116,7 +116,9 @@ $query = 'acer'; //input your search keyword
 $filter = $_GET; //get parameters from url such as limit, category and etc
 $searchtype = 'html'; // we provide 2 type method for return of search result there are 'json' and 'html'
 
-$facetly_api->searchProduct($query,$filter,$searchtype);
+$api_output = $facetly_api->searchProduct($query,$filter,$searchtype);
+print_r($api_output->facets);
+print_r($api_output->results);
 ~~~
 
 
