@@ -140,7 +140,8 @@ $facetly_api->setServer($api_server);
 
 $query = 'a'; //input your search keyword here
 
-$facetly_api->searchAutocomplete($query,$filter,$searchtype);
+$api_output = $facetly_api->searchAutocomplete($query,$filter,$searchtype);
+$print_r($api_output);
 ~~~
 
 
