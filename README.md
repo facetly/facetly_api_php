@@ -39,11 +39,15 @@ $api_key : input your Facetly API key
 $api_secret : input your Facetly API secret 
 $api_server : input your Facetly API server
 $api_baseurl : input your store baseurl~~~
+~~~
 
 The function for authentication are:
+~~~
 $facetly_api->setConsumer($api_key,$api_secret) : authentication key and secret
 $facetly_api->setServer($api_server) : authentication server
 $facetly_api->setBaseurl($api_baseurl) : authentication store baseurl
+~~~
+
 Now you can use Facetly API function for modify your data product
 
 Facetly API Product Update
@@ -64,11 +68,16 @@ $items = array(
  "imageurl" => "http://facetly.com/sites/default/files/imagecache/tour/asian.jpg", 
 );
 $facetly_api->productUpdate($items);
+~~~
+
 The parameters for productUpdate function are :
+~~~
 $facetly_api : initiate facetly API (don't forget to authentication first)
 $items : input your product properties
+~~~
 
 The function for productUpdate are :
+~~~
 $facetly_api->setConsumer($api_key,$api_secret) : authentication key and secret
 $facetly_api->setServer($api_server) : authentication server
 $facetly_api->productUpdate($items) : insert product into Facetly API
@@ -85,7 +94,10 @@ $facetly_api = new facetly_api;
 $id = '1'
 
 $facetly_api->productDelete($id);
+~~~
+
 The parameters for productDelete function are :
+~~~
 $facetly_api : initiate facetly API (don't forget to authentication first)
 $id : input your product id
 The function for productDelete are :
@@ -107,7 +119,10 @@ $filter = $_GET
 $searchtype = 'html' // we provide 2 type method for return of search result there are 'json' and 'html'
 
 $facetly_api->searchProduct($query,$filter,$searchtype);
+~~~
+
 The parameters for searchProduct function are:
+~~~
 $facetly_api : initiate facetly API (don't forget to authentication first)
 $query : input your search keyword here
 $filter : get parameters in search url such as limit, category and etc
@@ -130,7 +145,10 @@ $facetly_api = new facetly_api;
 $query = 'a' //input your search keyword here
 
 $facetly_api->searchAutocomplete($query,$filter,$searchtype);
+~~~
+
 The parameters for SearchAutocomplete function are:
+~~~
 $facetly_api : initiate facetly API (don't forget to authentication first)
 $query : input your search keyword here
 The function for SearchAutocomplete are:
