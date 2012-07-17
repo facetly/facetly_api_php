@@ -3,6 +3,10 @@ Facetly API User Guide
 
 Facetly API user guide is used for introducing Facetly API into user with couples example and simple code to know more about how to use Facetly function in their web.
 
+API Documentation
+-------------
+To know more about Facetly API, you can check out facetly-documentation.doc or https://www.facetly.com/doc/api
+
 Authentication
 -------------
 Authenticate your key, secret, and server to connect with Facetly API where you can get it when you create account and create store on www.facetly.com. Here is a simple code for autenticate key, secret and server.
@@ -19,7 +23,7 @@ $facetly_api->setConsumer($api_key,$api_secret);
 $facetly_api->setServer($api_server);
 ~~~
 
-Function like search product and search autocomplete need authentication baseurl for return their search result. Here is a simple code for authenticate your store baseurl
+Function like search product need authentication baseurl for return their search result. Here is a simple code for authenticate your store baseurl
 ~~~
 require_once("./facetly_api.php");
 $facetly_api = new facetly_api;
@@ -85,7 +89,7 @@ $api_server = 'http://sg2.facetly.com/1';
 $facetly_api->setConsumer($api_key,$api_secret); 
 $facetly_api->setServer($api_server);
 
-$id = '1';
+$id = '1'; //input your product id
 
 $facetly_api->productDelete($id);
 ~~~
@@ -102,12 +106,14 @@ $facetly_api = new facetly_api;
 $api_key = 'zuakz7ok';
 $api_secret = 'dmzmyfsapjhknutrtunvjesnunbae6ej';
 $api_server = 'http://sg2.facetly.com/1';
+$api_baseurl = '/find';
 
 $facetly_api->setConsumer($api_key,$api_secret); 
 $facetly_api->setServer($api_server);
+$facetly_api->setBaseurl($api_baseurl);
 
 $query = 'acer'; //input your search keyword
-$filter = $_GET;
+$filter = $_GET; //get parameters from url such as limit, category and etc
 $searchtype = 'html'; // we provide 2 type method for return of search result there are 'json' and 'html'
 
 $facetly_api->searchProduct($query,$filter,$searchtype);
@@ -152,7 +158,7 @@ $api_server = 'http://sg2.facetly.com/1';
 $facetly_api->setConsumer($api_key,$api_secret); 
 $facetly_api->setServer($api_server);
 
-$api_path = “search/product”;
+$api_path = “search/product”; //input API path
 $api_data = array(
  "key" => "zuakz7ok",
  "secret" => "dmzmyfsapjhknutrtunvjesnunbae6ej",
@@ -164,12 +170,12 @@ $api_data = array(
  "url" => "http://facetly.com/product/tour",
  "imageurl" => "http://facetly.com/sites/default/files/imagecache/tour/asian.jpg",
 );
-$api_method = “POST”;
+$api_method = “POST”; //API have 2 method for call function there is GET and POST
 $api_output = $facetly->call($api_path, $api_data, $api_method);
 $return = json_decode($api_output);
 print_r($return);
 ~~~
 
-To know more about Facetly API, you can check out facetly-documentation.doc or https://www.facetly.com/doc/api
+
 
 
