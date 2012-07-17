@@ -69,7 +69,8 @@ $items = array(
  "imageurl" => "http://facetly.com/sites/default/files/imagecache/tour/asian.jpg", 
 );
 
-$facetly_api->productUpdate($items);
+$api_output = $facetly_api->productUpdate($items);
+$print_r($api_output);
 ~~~
 
 
@@ -91,7 +92,8 @@ $facetly_api->setServer($api_server);
 
 $id = '1'; //input your product id
 
-$facetly_api->productDelete($id);
+$api_output = $facetly_api->productDelete($id);
+$print_r($api_output);
 ~~~
 
 Facetly API Search Product
