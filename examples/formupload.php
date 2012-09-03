@@ -37,13 +37,13 @@ if(!empty($_POST))
 {
   if(!empty($_POST['ID']) || !empty($_POST['title'])) {
   
-    require_once("facetly_api.php");
+    require_once("../facetly_api.php");
     $facetly = new facetly_api;
-    $key = "zuakz7ok";
-    $secret = "dmzmyfsapjhknutrtunvjesnunbae6ej";
-    $server = "http://sg2.facetly.com/1";
-    $facetly->setConsumer($key, $secret);  
-    $facetly->setServer($server);	
+    $api_key = "yiqoybfe";
+    $api_secret = "rzhizcpntx7c6cxv4nqocrx7mjemcaua";
+    $api_server = "http://sg2.facetly.net/1";
+    $facetly->setConsumer($api_key, $api_secret);  
+    $facetly->setServer($api_server);		
   
     //get input form
     $item = array( 

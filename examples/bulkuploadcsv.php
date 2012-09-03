@@ -13,13 +13,13 @@
 if(!empty($_FILES['files'])) {
 
   //connecting with facetly library(facetly.php) that saved in variable facetly
-  require_once("facetly_api.php");
+  require_once("../facetly_api.php");
   $facetly = new facetly_api;
-  $key = "zuakz7ok";
-  $secret = "dmzmyfsapjhknutrtunvjesnunbae6ej";
+  $api_key = "yiqoybfe";
+  $api_secret = "rzhizcpntx7c6cxv4nqocrx7mjemcaua";
   $server = "http://sg2.facetly.com/1";
-  $facetly->setConsumer($key, $secret);  
-  $facetly->setServer($server);	
+  $facetly->setConsumer($api_key, $api_secret);  
+  $facetly->setServer($api_server);	
   $i = 1;
   $flag=0;
 
