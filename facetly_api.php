@@ -8,9 +8,10 @@ class facetly_api
         $this->secret = $secret;
     }
     
-    function setServer($server)
+    function setServer($server, $async = FALSE)
     {
         $this->server = $server;
+        $this->async = $async;
     }
     function setBaseUrl($baseurl)
     {
@@ -187,12 +188,15 @@ class facetly_api
     
     function call($path, $data, $method)
     {
-        if (!$this->server)
-            throw new Exception('$this->server needs a value');
-        $data = http_build_query($data, '', '&');
+        if (!$this->key || !$this->secret || !$this->server) throw new Exception('Empty Consumer Configuration');               
+            $data = http_build_query($data, '', '&');
         //replace multiple values [0]..[n] to [], thanks to http://www.php.net/manual/en/function.http-build-query.php#78603
         $data = preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '[]=', $data);
         $path = $this->server . "/" . $path;
+        
+        if ($this->async) {
+          $this->curl_post_async($path, $data);
+        } else {
         
         if ($method == 'POST') {
             $Curl_Session = curl_init($path);
@@ -200,7 +204,7 @@ class facetly_api
             curl_setopt($Curl_Session, CURLOPT_POSTFIELDS, $data);
         } else if ($method == 'GET') {
             $Curl_Session = curl_init($path . '?' . $data);
-        }
+        }        
         
         curl_setopt($Curl_Session, CURLOPT_HEADER, FALSE);
         curl_setopt($Curl_Session, CURLOPT_RETURNTRANSFER, 1);
@@ -219,6 +223,29 @@ class facetly_api
         
         $this->output = $output;
         return $this->output;
+        }
     }
+
+    // curl async, thanks to http://petewarden.typepad.com/searchbrowser/2008/06/how-to-post-an.html
+    function curl_post_async($url, $post_string)
+    {    
+        $parts=parse_url($url);
+
+        $fp = fsockopen($parts['host'], 
+            isset($parts['port'])?$parts['port']:80, 
+            $errno, $errstr, 30);
+
+        //pete_assert(($fp!=0), "Couldn't open a socket to ".$url." (".$errstr.")");(optional)
+
+        $out = "POST ".$parts['path']." HTTP/1.1\r\n";
+        $out.= "Host: ".$parts['host']."\r\n";
+        $out.= "Content-Type: application/x-www-form-urlencoded\r\n";
+        $out.= "Content-Length: ".strlen($post_string)."\r\n";
+        $out.= "Connection: Close\r\n\r\n";
+        if (isset($post_string)) $out.= $post_string;
+
+        fwrite($fp, $out);
+        fclose($fp);
+    }        
 }
 
