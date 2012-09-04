@@ -13,15 +13,12 @@
 	"file" : "search-ajax.php",
 	"baseurl" : "<?php echo $baseurl ?>",
 	 }
-	 console.log(facetly);
   </script>
 
 <script src="js/facetly.js" type="text/javascript"></script>
 </head>
 <body>
 <?php 
-//require_once("connection.php");
-	//$facetly->setBaseUrl("/facetly/search-ajax.php");
 require_once("../facetly_api.php");
 $facetly = new facetly_api;
 $api_key = "y37fdeti";
