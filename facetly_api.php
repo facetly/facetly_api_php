@@ -4,7 +4,7 @@
  * by Rizqinofa Putra M <rizqi@facetly.com>
  * https://github.com/facetly/facetly_api_php
  *
- * This 
+ * Create Facetly library API with PHP
  */
 class facetly_api
 {
